@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Guard19.Views.HomeView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Guard19.ViewModels">
+
+    <ContentPage.BindingContext>
+        <local:HomeViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#fbfaff">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Image
+                    Grid.Row="0"
+                    Aspect="AspectFill"
+                    Source="Covid19BG.png"
+                    VerticalOptions="Start" />
+
+                <StackLayout Grid.Row="0" Grid.Column="0">
+                    <StackLayout Margin="10,25,0,0" Orientation="Horizontal">
+                        <ImageButton
+                            x:Name="flag"
+                            Aspect="Fill"
+                            CornerRadius="5"
+                            HeightRequest="40"
+                            HorizontalOptions="Center"
+                            Source="{Binding Flag}"
+                            VerticalOptions="Center"
+                            WidthRequest="60" />
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                                x:Name="countryName"
+                                Margin="5,5,0,0"
+                                FontFamily="PoppinsB"
+                                FontSize="18"
+                                Text="{Binding CountryName}"
+                                TextColor="White" />
+                            <Image
+                                Margin="5,0,0,0"
+                                HeightRequest="10"
+                                Source="dropdownArrow.png"
+                                WidthRequest="10" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="SelectCountry"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                    </StackLayout>
+
+                    <StackLayout Margin="10,0,0,0" Orientation="Vertical">
+                        <Label
+                            Margin="5,5,0,0"
+                            FontFamily="PoppinsB"
+                            FontSize="24"
+                            Text="Today's Cases"
+                            TextColor="{StaticResource TodayCasesText}" />
+
+                        <Label
+                            Margin="5,-10,0,0"
+                            FontFamily="PoppinsB"
+                            FontSize="62"
+                            Text="{Binding TodayCases, StringFormat='{0:N0}'}"
+                            TextColor="{StaticResource TodayCasesText}" />
+                    </StackLayout>
+                </StackLayout>
+
+                <Frame
+                    Grid.Row="1"
+                    Margin="0,-30,0,0"
+                    BackgroundColor="#fbfaff"
+                    CornerRadius="30"
+                    HasShadow="False"
+                    HeightRequest="500">
+                    <StackLayout>
+                        <ListView
+                            HasUnevenRows="True"
+                            ItemsSource="{Binding countryInfoList}"
+                            SelectionMode="None">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="auto" />
+                                                    <RowDefinition Height="auto" />
+                                                </Grid.RowDefinitions>
+                                                <StackLayout
+                                                    Grid.Row="0"
+                                                    HorizontalOptions="Center"
+                                                    Orientation="Horizontal">
+                                                    <Frame
+                                                        BackgroundColor="{StaticResource Active}"
+                                                        CornerRadius="10"
+                                                        HeightRequest="70"
+                                                        WidthRequest="130">
+                                                        <StackLayout>
+                                                            <Label
+                                                                Margin="-7,-12,0,0"
+                                                                FontFamily="PoppinsM"
+                                                                FontSize="18"
+                                                                Text="Active"
+                                                                TextColor="{StaticResource ActiveText}" />
+                                                            <Label
+                                                                Margin="0,25,0,0"
+                                                                FontFamily="PoppinsB"
+                                                                FontSize="24"
+                                                                HorizontalTextAlignment="End"
+                                                                Text="{Binding Active, StringFormat='{0:N0}'}"
+                                                                TextColor="{StaticResource KnowMoreText}" />
+                                                        </StackLayout>
+                                                    </Frame>
+
+                                                    <Frame
+                                                        Margin="10,0,0,0"
+                                                        BackgroundColor="{StaticResource Recovered}"
+                                                        CornerRadius="10"
+                                                        HeightRequest="70"
+                                                        WidthRequest="130">
+                                                        <StackLayout>
+                                                            <Label
+                                                                Margin="-7,-12,0,0"
+                                                                FontFamily="PoppinsM"
+                                                                FontSize="18"
+                                                                Text="Recovered"
+                                                                TextColor="{StaticResource RecoveredText}" />
+                                                            <Label
+                                                                Margin="0,25,0,0"
+                                                                FontFamily="PoppinsB"
+                                                                FontSize="24"
+                                                                HorizontalTextAlignment="End"
+                                                                Text="{Binding Recovered, StringFormat='{0:N0}'}"
+                                                                TextColor="{StaticResource RecoveredText}" />
+                                                        </StackLayout>
+                                                    </Frame>
+                                                </StackLayout>
+
+                                                <StackLayout
+                                                    Grid.Row="1"
+                                                    Margin="0,15,0,0"
+                                                    HorizontalOptions="Center"
+                                                    Orientation="Horizontal">
+                                                    <Frame
+                                                        BackgroundColor="{StaticResource TotalCases}"
+                                                        CornerRadius="10"
+                                                        HeightRequest="70"
+                                                        WidthRequest="130">
+                                                        <StackLayout>
+                                                            <Label
+                                                                Margin="-7,-12,0,0"
+                                                                FontFamily="PoppinsM"
+                                                                FontSize="18"
+                                                                Text="Total Cases"
+                                                                TextColor="{StaticResource TotalCasesText}" />
+                                                            <Label
+                                                                Margin="0,25,0,0"
+                                                                FontFamily="PoppinsB"
+                                                                FontSize="24"
+                                                                HorizontalTextAlignment="End"
+                                                                Text="{Binding Cases, StringFormat='{0:N0}'}"
+                                                                TextColor="{StaticResource TotalCasesText}" />
+                                                        </StackLayout>
+                                                    </Frame>
+
+                                                    <Frame
+                                                        Margin="10,0,0,0"
+                                                        BackgroundColor="{StaticResource Deceased}"
+                                                        CornerRadius="10"
+                                                        HeightRequest="70"
+                                                        WidthRequest="130">
+                                                        <StackLayout>
+                                                            <Label
+                                                                Margin="-7,-12,0,0"
+                                                                FontFamily="PoppinsM"
+                                                                FontSize="18"
+                                                                Text="Deceased"
+                                                                TextColor="{StaticResource DeceasedText}" />
+                                                            <Label
+                                                                Margin="0,25,0,0"
+                                                                FontFamily="PoppinsB"
+                                                                FontSize="24"
+                                                                HorizontalTextAlignment="End"
+                                                                Text="{Binding Deaths, StringFormat='{0:N0}'}"
+                                                                TextColor="{StaticResource DeceasedText}" />
+                                                        </StackLayout>
+                                                    </Frame>
+                                                </StackLayout>
+
+                                                <Frame
+                                                    Grid.Row="2"
+                                                    Margin="0,15,0,0"
+                                                    BackgroundColor="{StaticResource KnowMore}"
+                                                    CornerRadius="10"
+                                                    HeightRequest="100">
+                                                    <FlexLayout AlignItems="Center" JustifyContent="SpaceBetween">
+                                                        <Image Source="KnowMore.png" />
+                                                        <StackLayout>
+                                                            <Label
+                                                                FontFamily="PoppinsR"
+                                                                FontSize="14"
+                                                                Text="Know safety tips&#10;and precautions&#10;from top Doctors."
+                                                                TextColor="{StaticResource KnowMoreText}" />
+                                                            <ImageButton
+                                                                BackgroundColor="{StaticResource BtnBG}"
+                                                                CornerRadius="20"
+                                                                HeightRequest="21"
+                                                                HorizontalOptions="End"
+                                                                Source="rightarrow.png"
+                                                                WidthRequest="55" />
+                                                        </StackLayout>
+                                                    </FlexLayout>
+                                                </Frame>
+                                            </Grid>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

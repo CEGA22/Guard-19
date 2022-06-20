@@ -1,0 +1,77 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Font\Poppins-Black.ttf" />
+    <None Remove="Font\Poppins-BlackItalic.ttf" />
+    <None Remove="Font\Poppins-Bold.ttf" />
+    <None Remove="Font\Poppins-BoldItalic.ttf" />
+    <None Remove="Font\Poppins-ExtraBold.ttf" />
+    <None Remove="Font\Poppins-ExtraBoldItalic.ttf" />
+    <None Remove="Font\Poppins-ExtraLight.ttf" />
+    <None Remove="Font\Poppins-ExtraLightItalic.ttf" />
+    <None Remove="Font\Poppins-Italic.ttf" />
+    <None Remove="Font\Poppins-Light.ttf" />
+    <None Remove="Font\Poppins-LightItalic.ttf" />
+    <None Remove="Font\Poppins-Medium.ttf" />
+    <None Remove="Font\Poppins-MediumItalic.ttf" />
+    <None Remove="Font\Poppins-Regular.ttf" />
+    <None Remove="Font\Poppins-SemiBold.ttf" />
+    <None Remove="Font\Poppins-SemiBoldItalic.ttf" />
+    <None Remove="Font\Poppins-Thin.ttf" />
+    <None Remove="Font\Poppins-ThinItalic.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Font\Poppins-Black.ttf" />
+    <EmbeddedResource Include="Font\Poppins-BlackItalic.ttf" />
+    <EmbeddedResource Include="Font\Poppins-Bold.ttf" />
+    <EmbeddedResource Include="Font\Poppins-BoldItalic.ttf" />
+    <EmbeddedResource Include="Font\Poppins-ExtraBold.ttf" />
+    <EmbeddedResource Include="Font\Poppins-ExtraBoldItalic.ttf" />
+    <EmbeddedResource Include="Font\Poppins-ExtraLight.ttf" />
+    <EmbeddedResource Include="Font\Poppins-ExtraLightItalic.ttf" />
+    <EmbeddedResource Include="Font\Poppins-Italic.ttf" />
+    <EmbeddedResource Include="Font\Poppins-Light.ttf" />
+    <EmbeddedResource Include="Font\Poppins-LightItalic.ttf" />
+    <EmbeddedResource Include="Font\Poppins-Medium.ttf" />
+    <EmbeddedResource Include="Font\Poppins-MediumItalic.ttf" />
+    <EmbeddedResource Include="Font\Poppins-Regular.ttf" />
+    <EmbeddedResource Include="Font\Poppins-SemiBold.ttf" />
+    <EmbeddedResource Include="Font\Poppins-SemiBoldItalic.ttf" />
+    <EmbeddedResource Include="Font\Poppins-Thin.ttf" />
+    <EmbeddedResource Include="Font\Poppins-ThinItalic.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\AboutView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DashboardView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\HomeView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\worldView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

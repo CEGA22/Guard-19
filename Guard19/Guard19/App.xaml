@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="Guard19.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Application.Resources>
+        <!--  Colors  -->
+        <Color x:Key="Active">#E8F2FF</Color>
+        <Color x:Key="Recovered">#B7F4D8</Color>
+        <Color x:Key="TotalCases">#FCE5EB</Color>
+        <Color x:Key="Deceased">#ECECEC</Color>
+        <Color x:Key="KnowMore">#C5EFF7</Color>
+
+        <Color x:Key="ActiveText">#1881FB</Color>
+        <Color x:Key="RecoveredText">#03C9A9</Color>
+        <Color x:Key="RecoveredTextNumber">#03C9A9</Color>
+        <Color x:Key="TotalCasesText">#F64747</Color>
+        <Color x:Key="DeceasedText">#6C7A89</Color>
+        <Color x:Key="KnowMoreText">#1881FB</Color>
+        <Color x:Key="TodayCasesText">#59ABE3</Color>
+        <Color x:Key="BtnBG">#19B5FE</Color>
+        <Color x:Key="BG">#C5EFF7</Color>
+
+    </Application.Resources>
+</Application>

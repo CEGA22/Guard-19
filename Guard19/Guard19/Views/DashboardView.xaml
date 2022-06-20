@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="Guard19.DashboardView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:views="clr-namespace:Guard19.Views"
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    NavigationPage.HasNavigationBar="False">
+    <!--  Pages can be added as references or inline  -->
+
+    <TabbedPage.Children>
+        <views:HomeView Title="Home" IconImageSource="Home.png" />
+        <views:worldView Title="World" IconImageSource="worldwide.png" />
+        <views:AboutView Title="About" IconImageSource="covid19.png" />
+    </TabbedPage.Children>
+
+</TabbedPage>
