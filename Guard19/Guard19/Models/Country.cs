@@ -6,10 +6,7 @@ using System.Text;
 namespace Guard19.Models
 {
     public class Country
-    {
-        [JsonProperty("updated")]
-        public long Updated { get; set; }
-
+    {    
         [JsonProperty("country")]
         public string CountryName { get; set; }
 

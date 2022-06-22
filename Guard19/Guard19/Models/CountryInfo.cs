@@ -17,10 +17,10 @@ namespace Guard19.Models
         public string Iso3 { get; set; }
 
         [JsonProperty("lat")]
-        public int Lat { get; set; }
+        public float Lat { get; set; }
 
         [JsonProperty("long")]
-        public int Long { get; set; }
+        public float Long { get; set; }
 
         [JsonProperty("flag")]
         public string Flag { get; set; }

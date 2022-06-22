@@ -25,6 +25,21 @@ namespace Guard19.Services
             {
                 return null;
             }
-        }       
+        }
+
+        public static async Task<Country> GetSpecificCountry(string country)
+        {
+            try
+            {
+                string url = BaseUrl + $"/{country}?yesterday=true&strict=true&query";
+                var content = await WebMethods.MakeGetRequest(url);
+                var result = JsonConvert.DeserializeObject<Country>(content);
+                return result;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
     }
 }

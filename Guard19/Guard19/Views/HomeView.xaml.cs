@@ -1,4 +1,5 @@
-﻿using Guard19.ViewModels;
+﻿using Guard19.Models;
+using Guard19.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +16,23 @@ namespace Guard19.Views
     {
         public HomeView()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            BindingContext = new HomeViewModel();           
         }
 
-        private void SelectCountry(object sender, EventArgs e)
+        private void SelectedCountry(object sender, EventArgs e)
         {
-            
-           
+            countries.Focus();
+        }
+
+        private async void countries_SelectedIndexChanged(object sender, EventArgs e)
+        {           
+            var selectedItem = countries.Items[countries.SelectedIndex];
+
+            if (BindingContext is HomeViewModel hvm)
+            {
+                await hvm.DisplaySpecificCountry(selectedItem.ToString());                
+            }
         }
     }
 }

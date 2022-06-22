@@ -13,6 +13,7 @@ namespace Guard19.ViewModels
     public class WorldViewModel: BaseViewModel
     {
         public ObservableRangeCollection<World> AllCountries { get; set; }
+        public ObservableRangeCollection<Country> Countries { get; set; } 
 
         private int todayCases;
         public int TodayCases
@@ -29,7 +30,7 @@ namespace Guard19.ViewModels
 
         public async void PreparePageBindings()
         {
-            await DisplayAll();
+            await DisplayAll();          
         }
 
         public async Task DisplayAll()
@@ -37,6 +38,6 @@ namespace Guard19.ViewModels
             var all = await CovidService.GetAll();
             AllCountries.Add(all);
             TodayCases = all.TodayCases;
-        }
+        }        
     }
 }
